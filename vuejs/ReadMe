@@ -1,0 +1,14 @@
+Vous allez avoir besoin des directives suivantes :
+v-on: (@) @click et @change pour les boutons radios.
+v-bind: (:)
+v-if=
+v-show=
+v-for=
+v-model=
+
+Il y a une chose un peu compliquée, il faudra aller chercher le prix de la couleur selectionnée pour tablier et poche, il faut faire une sorte de recherche dans
+un tableau d'objets, pour cela il faudra utiliser une arrow function, ca donne un truc du genre :
+this.tablierData.find(couleurs => couleurs.couleur === this.selectedTablier).price
+A part ca, c'est juste de la méthode !!
+
+

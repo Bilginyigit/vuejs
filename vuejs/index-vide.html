@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>exemple vue.js</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="block-center" id="VueDemo">
+
+    <div class="image-block">
+        <div class="textePerso" :style="{color:selectedTexteColor}">{{CustomText}}</div>
+
+         <div class="tablier">
+             <img v-for="tablier in tablierData" :src="tablier.image" v-if="selectedTablier == tablier.code">
+          </div>
+
+        <div class="poche">
+            <img v-for="poche in pocheData" :src="poche.image" v-if="selectedPoche == poche.code">
+        </div>
+    </div>
+
+    <div class="tools">
+        <div class="price">{{prixCalcule}} €</div>
+
+        <div class="TitreTexte">Couleur du tablier : {{selectedTablier }}</div>
+
+        <div class="ColorSelector">
+            <div class="ColorRound" v-for="couleur in tablierData" @click="selectedTablier = couleur.code" :style="{backgroundColor:couleur.code}"></div>
+        </div>
+
+        <div class="TitreTexte">Couleur poche : {{selectedPoche}}</div>
+
+        <div class="ColorSelector">
+            <div class="ColorRound"  v-for="couleur in pocheData" @click="selectedPoche = couleur.code" :style="{backgroundColor:couleur.code}" ></div>
+        </div>
+
+        <div class="TitreTexte">Texte personnalisé</div>
+
+        <div class="ColorSelector">
+            <input type="radio" id="UseText1" name="UseText" checked/>
+            <label for="UseText1"><span></span>OUI</label>
+
+            <input type="radio" id="UseText2" name="UseText"/>
+            <label for="UseText2"><span></span>NON</label>
+
+            <template v-if="TextOption">
+                <input type="text"  v-model="CustomText" value="Votre texte ici" style="font-size:20px;padding:5px;margin-top:15px;width: 200px;" maxlength="20">
+                <br>
+                <div class="ColorRound" v-for="couleur in couleurText" :style="{backgroundColor:couleur.code}" @click="selectedTexteColor = couleur.code" ></div>
+            </template>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: '#VueDemo',
+        data: {
+            tablierData: [
+                {couleur: 'Jaune', code: '#e2d047', image: 'option-1-jaune.png', price: 12.30},
+                {couleur: 'Orange', code: '#f1722f', image: 'option-1-orange.png', price: 12.00},
+                {couleur: 'Violet', code: '#bd3ad8', image: 'option-1-violet.png', price: 12.10}
+            ],
+            pocheData: [
+                {couleur: 'Bleu', code: '#11119e', image: 'option-2-bleu.png', price: 8.30},
+                {couleur: 'Fuchsia', code: '#991157', image: 'option-2-fuchsia.png', price: 8.50},
+                {couleur: 'Rouge', code: '#d31431', image: 'option-2-rouge.png', price: 8.10},
+                {couleur: 'vert', code: '#a1cc16', image: 'option-2-vert.png', price: 8.75}
+            ],
+            couleurText: [
+                {couleur: 'Blanc', code: '#FFFFFF'},
+                {couleur: 'Noir', code: '#000000'},
+                {couleur: 'Bleu', code: '#11119e'},
+                {couleur: 'Fuchsia', code: '#991157'},
+                {couleur: 'Rouge', code: '#d31431'},
+                {couleur: 'vert', code: '#a1cc16'},
+                {couleur: 'Jaune', code: '#e2d047'},
+                {couleur: 'Orange', code: '#f1722f'}
+            ],
+            selectedTablier: 'Violet',
+            selectedPoche: 'Rouge',
+            CustomText: 'Votre texte ici',
+            selectedTexteColor: '#FFFFFF',
+            TextOption: true,
+            PrixLettre: 1.80
+
+        },
+        methods: {
+            clicked: function () {
+
+            }
+        },
+
+        computed: {
+            prixCalcule: function () {
+                return this.PrixLettre*this.CustomText.length;
+            }
+
+
+        },
+
+        watch: {
+            // j'en ai pas eu besoin mais à chacun sa manière de faire...
+        }
+    });
+</script>
+</html>
+

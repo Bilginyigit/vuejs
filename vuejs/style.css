@@ -1,0 +1,130 @@
+body {
+    background-color: #f3f3f3;
+}
+
+.block-center {
+    width: 1000px;
+    margin:auto;
+    padding-top:10;
+}
+
+.image-block {
+    width: 630px;
+    height: 945px;
+    border-radius: 5px;
+    background-image: url('chasuble.jpg');
+    display:block;
+    float:left;
+    position: relative;
+}
+
+.tablier {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:10;
+}
+
+.poche {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:20;
+}
+
+.textePerso {
+    position: absolute;
+    top: 348px;
+    left: 110px;
+    z-index:30;
+    width: 300px;
+    text-align: right;
+    transform: rotate(-5deg);
+    font-family: 'Courgette', cursive;
+    font-weight:bold;
+    opacity: 0.9;
+}
+
+.tools {
+    width: 370px;
+    display:block;
+    float:left;
+}
+
+.TitreTexte {
+    background-color: #7c7c7c;
+    width: 80%;
+    margin:auto;
+    padding:10px;
+    text-align:center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    border-radius: 5px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.ColorSelector {
+    width: 80%;
+    margin:auto;
+    padding:10px;
+    text-align:center;
+    display: block;
+
+}
+
+.ColorRound {
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color:red;
+    margin:10px;
+}
+
+.ImageTransition {
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.selectedColor {
+    border: 4px solid #7c7c7c;
+    width:34px;
+    height: 34px;
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label {
+    color:black;
+    font-family: 'Noto Serif JP', sans-serif;
+    font-size:18px;
+    font-weight:bold;
+}
+
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -38px top no-repeat;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+    background:url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -57px top no-repeat;
+}
+
+.price {
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    font-size:55px;
+    padding:20px;
+    color: #7c7c7c;
+    font-weight: bold;
+}
